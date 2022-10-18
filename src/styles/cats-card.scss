@@ -14,19 +14,14 @@
   }
   &__price {
     padding: 5px;
-    width: 135px;
+    display: inline-block;
     border-radius: 16px;
     background-color: #e4f3f7;
     font-size: 14px;
     margin-bottom: 10px;
   }
 
-  &__name {
-  }
-
   &__description {
-    // padding-left: 65px;
-    // word-spacing: 15px;
     font-weight: 700;
     font-size: 15px;
   }

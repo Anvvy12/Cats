@@ -1,12 +1,14 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import './styles/cats-card.scss';
 
-const Cat = forwardRef(({ cat }) => {
-  const correntClass = cat.available ? 'cat-card' : 'cat-card_notAvailable';
+const Cat = ({ cat }) => {
+  const correntClass = cat.available ? 'cat-card__img' : 'cat-card__img notAvailable';
+  const isForSale = cat.available ? `🔖 For sale: $${cat.price}` : '❌ Not for sale';
+
   return (
-    <li className={`${correntClass}`}>
-      <div className="cat-card__price">🔖 For sale: ${cat.price}</div>
-      <img src={cat.image_url} className="cat-card__img"></img>
+    <li className="cat-card">
+      <div className="cat-card__price">{isForSale}</div>
+      <img src={cat.image_url} className={correntClass}></img>
       <div className="cat-card__description ">
         <span className="cat-card__name">
           Name: {cat.name} <br />
@@ -15,6 +17,6 @@ const Cat = forwardRef(({ cat }) => {
       </div>
     </li>
   );
-});
+};
 
 export default Cat;

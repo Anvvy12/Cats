@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import './styles/cats-list.scss';
 import Cat from './Cat';
 
-const ShowCats = ({ data }) => {
+const ShowCats = ({ cats }) => {
   return (
     <>
       <ol className="cats-list">
-        {data.cats.map((cat, index) => (
-          <Cat cat={cat} key={cat.id} />
-        ))}
+        {cats.map(cat => {
+          return <Cat cat={cat} key={cat.id} />;
+        })}
       </ol>
     </>
   );

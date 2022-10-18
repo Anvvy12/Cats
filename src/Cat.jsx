@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './styles/cats-card.scss';
 
-const Cat = ({ cat }) => {
+const Cat = forwardRef(({ cat }) => {
   const correntClass = cat.available ? 'cat-card' : 'cat-card_notAvailable';
   return (
     <li className={`${correntClass}`}>
@@ -15,6 +15,6 @@ const Cat = ({ cat }) => {
       </div>
     </li>
   );
-};
+});
 
 export default Cat;

@@ -2,12 +2,12 @@ import React from 'react';
 import './styles/cats-list.scss';
 import Cat from './Cat';
 
-const ShowCats = ({ cats }) => {
+const ShowCats = ({ data }) => {
   return (
     <>
       <ol className="cats-list">
-        {cats.map(cat => (
-          <Cat cat={cat} />
+        {data.cats.map((cat, index) => (
+          <Cat cat={cat} key={cat.id} />
         ))}
       </ol>
     </>

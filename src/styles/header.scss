@@ -1,8 +1,5 @@
 .header {
   position: sticky;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   z-index: 2;
   top: 0;
   width: 100%;
@@ -11,14 +8,41 @@
 }
 
 .navigation {
+  height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   &__input-name {
     margin-left: auto;
-    height: 20px;
+    margin-right: 15px;
+    height: 30px;
+    padding: 10px;
     border-radius: 16px;
+    border: none;
+    outline: none;
   }
 }
 
-.input-category {
+.search-btn {
+  position: relative;
+  top: 10;
+  right: 78px;
+  width: 60px;
+  height: 25px;
+  border: none;
+  outline: none;
+  border-radius: 16px;
+  background: #137fec;
+  cursor: pointer;
+}
+
+.select {
+  margin-left: 15px;
+  right: 28px;
+  width: 10%;
+  min-width: 60px;
+  height: 25px;
+  border: none;
+  border-radius: 16px;
+  outline: none;
 }

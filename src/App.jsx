@@ -8,13 +8,13 @@ const App = () => {
   const [cats, setCats] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [fetching, setFetching] = useState(true);
-  const [sortRiles, setSortRules] = useState({});
+  const [sortRiles, setSortRules] = useState({ category: 'fast', price: 'asc', name: '' });
 
   useEffect(() => {
     if (fetching) {
       axios
         .get(
-          `https://ftl-cryptokitties.fly.dev/api/crypto_kitties?page=${currentPage}&per_page=$30`,
+          `https://ftl-cryptokitties.fly.dev/api/crypto_kitties?page=${currentPage}&per_page=30&sort_by=${sortRiles.category}&sort_dir=${sortRiles.price}`,
         )
         .then(({ data }) => {
           setCats([...cats, ...data.cats]);
@@ -31,6 +31,10 @@ const App = () => {
     };
   }, []);
 
+  const handlerSubmit = event => {
+    event.preventDefault();
+  };
+
   const scrollHandler = e => {
     if (
       e.target.documentElement.scrollHeight -
@@ -43,7 +47,7 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <Header handlerSubmit={handlerSubmit} setSortRules={setSortRules} />
       <main className="main">
         <ShowCats cats={cats} />
       </main>

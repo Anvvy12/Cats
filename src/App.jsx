@@ -8,7 +8,7 @@ const App = () => {
   const [cats, setCats] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [fetching, setFetching] = useState(true);
-  const [sortRules, setSortRules] = useState({ sort_dir: 'asc', sort_by: 'price' });
+  const [sortRules, setSortRules] = useState({ sort_dir: 'asc', sort_by: 'id' });
 
   useEffect(() => {
     if (fetching) {

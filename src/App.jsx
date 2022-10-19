@@ -8,15 +8,26 @@ const App = () => {
   const [cats, setCats] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [fetching, setFetching] = useState(true);
-  const [sortRiles, setSortRules] = useState({ category: 'fast', price: 'asc', name: '' });
+  const [sortRules, setSortRules] = useState({ sort_dir: 'asc', sort_by: 'price' });
+  useEffect(() => {
+    console.log('12');
+  }, [sortRules]);
 
   useEffect(() => {
     if (fetching) {
       axios
         .get(
-          `https://ftl-cryptokitties.fly.dev/api/crypto_kitties?page=${currentPage}&per_page=30&sort_by=${sortRiles.category}&sort_dir=${sortRiles.price}`,
+          `https://ftl-cryptokitties.fly.dev/api/crypto_kitties?page=${currentPage}&per_page=30`,
+          {
+            params: {
+              sort_dir: sortRules.sort_dir,
+              sort_by: sortRules.sort_by,
+            },
+          },
         )
         .then(({ data }) => {
+          console.log('sort_dir', sortRules.sort_dir);
+          console.log('sort_by', sortRules.sort_by);
           setCats([...cats, ...data.cats]);
           setCurrentPage(currentPage + 1);
         })
@@ -47,7 +58,12 @@ const App = () => {
 
   return (
     <>
-      <Header handlerSubmit={handlerSubmit} setSortRules={setSortRules} />
+      <Header
+        handlerSubmit={handlerSubmit}
+        setSortRules={setSortRules}
+        sortRules={sortRules}
+        setFetching={setFetching}
+      />
       <main className="main">
         <ShowCats cats={cats} />
       </main>

@@ -32,13 +32,13 @@ const Header = ({ handlerSubmit, setSortRules, sortRules, setFetching }) => {
         </select>
         <select className="select" name="sort_dir" onChange={handleChange}>
           <option value="" selected disabled hidden defaultValue="">
-            Sort by price
+            Rule of sort
           </option>
           <option className="select-category__options" value="asc">
-            asc
+            Sort ascending
           </option>
           <option className="select-category__options" value="desc">
-            desc
+            Sort descending
           </option>
         </select>
 

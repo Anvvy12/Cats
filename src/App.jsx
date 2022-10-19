@@ -9,9 +9,6 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [fetching, setFetching] = useState(true);
   const [sortRules, setSortRules] = useState({ sort_dir: 'asc', sort_by: 'price' });
-  useEffect(() => {
-    console.log('12');
-  }, [sortRules]);
 
   useEffect(() => {
     if (fetching) {
@@ -42,8 +39,11 @@ const App = () => {
     };
   }, []);
 
-  const handlerSubmit = event => {
-    event.preventDefault();
+  const handlerSubmit = () => {
+    setCats([]);
+    setCurrentPage(1);
+    setCats([...cats, ...data.cats]);
+    setFetching(true);
   };
 
   const scrollHandler = e => {

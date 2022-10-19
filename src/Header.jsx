@@ -12,8 +12,8 @@ const Header = ({ handlerSubmit, setSortRules, sortRules, setFetching }) => {
 
   return (
     <header className="header">
-      <form className="navigation" onSubmit={handlerSubmit}>
-        <select className="select" name="sort_by" onChange={handleChange} type="submit">
+      <form className="navigation" onChange={handlerSubmit}>
+        <select className="select" name="sort_by" onChange={handleChange}>
           <option value="" selected disabled hidden defaultValue="">
             Sorting by
           </option>

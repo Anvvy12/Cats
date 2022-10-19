@@ -23,8 +23,6 @@ const App = () => {
           },
         )
         .then(({ data }) => {
-          console.log('sort_dir', sortRules.sort_dir);
-          console.log('sort_by', sortRules.sort_by);
           setCats([...cats, ...data.cats]);
           setCurrentPage(currentPage + 1);
         })
